@@ -32,9 +32,9 @@ namespace ListaZakupów
 
     struct Ingredient
     {
-        string Name { get; }
-        double Price { get; }
-        int Amount { get; set; }
+        public string Name { get; set; }
+        public double Price { get; set; }
+        public int Amount { get; set; }
 
         public Ingredient(string name, double price, int amount)
         {

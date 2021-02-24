@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,16 +36,31 @@ namespace ListaZakupów
 
             Ingredient ogorek = new Ingredient("ogorek", 1.0, 2);
 
+            /*
             Ingredient[] ings = { ogorek};
 
-            Dish test = new Dish("mizeria", 500, ings);
-            string json = JsonConvert.SerializeObject(test);
+            Dish[] test = { new Dish("mizeria", 500, ings) };
+
+            Stream fileStream = File.OpenWrite("../../Data/dishes.json");
+
+            StreamWriter writer = new StreamWriter(fileStream);
+            writer.Write(Utils.toJSON(test));
+            writer.Close();*/
+
+            string jsonText = File.ReadAllText("../../Data/dishes.json");
+
+            Dish[] allDishes = JsonConvert.DeserializeObject<Dish[]>(jsonText);
+
 
             for (int i = 0; i < 20; i++)
             {
-
                 shoppingList.Items.Add(new ShoppingListItem("Ogórek", i, pickleImage));
-                dishesList.Children.Add(new DishListItem("Mizeria", 500, mizeriaImage));
+            }
+
+            for (int i = 0; i < allDishes.Length; i++)
+            {
+                Dish dish = allDishes[i];
+                dishesList.Children.Add(new DishListItem(dish.Name, dish.Calories, mizeriaImage));
             }
         }
     }

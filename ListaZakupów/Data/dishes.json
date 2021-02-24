@@ -1,0 +1,25 @@
+[
+  {
+    "Name": "mizeria",
+    "Calories": 500,
+    "Ingredients": [
+      {
+        "Name": "ogorek",
+        "Price": 1.0,
+        "Amount": 2
+      }
+    ]
+  },
+
+  {
+    "Name": "duza mizeria",
+    "Calories": 1000,
+    "Ingredients": [
+      {
+        "Name": "ogorek",
+        "Price": 2.0,
+        "Amount": 4
+      }
+    ]
+  }
+]

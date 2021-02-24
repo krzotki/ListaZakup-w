@@ -12,10 +12,10 @@ namespace ListaZakupów
 
     struct Dish
     {
-        string Name { get; }
-        int Calories { get; }
+        public string Name { get; }
+        public int Calories { get; }
 
-        Ingredient[] Ingredients { get; }
+        public Ingredient[] Ingredients { get; }
         public Dish(string name, int calories, Ingredient[] ingredients)
         {
             this.Name = name;
