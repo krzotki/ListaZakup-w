@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -63,12 +64,14 @@ namespace ListaZakupów
             this.Calories = calories;
             this.Ingredients = ingredients;
 
+            this.setTooltipIngredients();
             this.Width = 200;
             this.Height = 200;
             this.Background = Brushes.Gray;
             this.Margin = new Thickness(10.0);
 
             this.label.FontSize = 16;
+            this.label.Foreground = Brushes.White;
             this.label.Height = 60;
             this.label.Width = 200;
             this.label.HorizontalContentAlignment = HorizontalAlignment.Center;
@@ -78,5 +81,19 @@ namespace ListaZakupów
             this.image.Margin = new Thickness(35, 0, 35, 0);
         }
 
+        private void setTooltipIngredients()
+        {
+            string text = "Składniki: \n";
+            for (int i = 0; i < this.Ingredients.Length; i++)
+            {
+                IngredientData ingredient = this.Ingredients[i];
+                int amount = ingredient.Amount;
+                Ingredient details = ingredient.getDetails();
+
+                text += amount + " x " + details.IngredientName + " (" + details.Calories + " kcal)\n";
+            }
+
+            this.ToolTip = text;
+        }
     }
 }
