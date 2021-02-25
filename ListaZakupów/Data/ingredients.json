@@ -1,0 +1,15 @@
+﻿[
+  {
+    "IngredientName": "Ogórek",
+    "ImageName": "pickle.jpg",
+    "Price": 1.20,
+    "Calories": 50
+  },
+
+  {
+    "IngredientName": "Pomidor",
+    "ImageName": "pomidor.jpg",
+    "Price": 1.40,
+    "Calories": 70
+  }
+]

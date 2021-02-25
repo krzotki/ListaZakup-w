@@ -1,24 +1,38 @@
 [
   {
-    "Name": "mizeria",
-    "Calories": 500,
+    "DishName": "Mizeria",
+    "ImageName": "mizeria.jpg",
     "Ingredients": [
       {
-        "Name": "ogorek",
-        "Price": 1.0,
+        "Index": 0,
         "Amount": 2
       }
     ]
   },
 
   {
-    "Name": "duza mizeria",
-    "Calories": 1000,
+    "DishName": "Pomidorowa",
+    "ImageName": "pomidorowa.jpg",
     "Ingredients": [
       {
-        "Name": "ogorek",
-        "Price": 2.0,
-        "Amount": 4
+        "Index": 1,
+        "Amount": 5
+      }
+    ]
+  },
+
+  {
+    "DishName": "Sa³atka",
+    "ImageName": "salatka.jpg",
+    "Ingredients": [
+      {
+        "Index": 0,
+        "Amount": 1
+      },
+
+      {
+        "Index": 1,
+        "Amount": 2
       }
     ]
   }

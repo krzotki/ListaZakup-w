@@ -22,46 +22,72 @@ namespace ListaZakupów
     /// </summary>
     /// 
 
+
     public partial class MainWindow : Window
     {
+        private void addIngredientsToShoppingList(object sender, EventArgs eventArgs)
+        {
+            IngredientData[] ingredients = ((DishListItem)sender).Ingredients;
+
+            for (int i = 0; i < ingredients.Length; i++)
+            {
+                Ingredient ingredient = ingredients[i].getDetails();
+                int amount = ingredients[i].Amount;
+
+                BitmapImage image = Utils.getImageByName(ingredient.ImageName);
+
+                ShoppingListItem item = new ShoppingListItem(ingredient.IngredientName, amount, ingredient.Price, image);
+
+                ShoppingListItem oldItem = Utils.findItemInShoppingList(item, shoppingList.Items);
+
+                if (oldItem != null)
+                {
+                    oldItem.Amount += item.Amount;
+                }
+                else
+                {
+                    shoppingList.Items.Add(item);
+                }
+            }
+        }
+
+        public static Ingredient[] INGREDIENTS;
+        public static Dish[] DISHES;
+        public void loadIngredientsFromJSON()
+        {
+            string jsonText = File.ReadAllText("../../Data/ingredients.json", Encoding.Default);
+            INGREDIENTS = JsonConvert.DeserializeObject<Ingredient[]>(jsonText);
+        }
+
+        public void loadDishesFromJSON()
+        {
+            string jsonText = File.ReadAllText("../../Data/dishes.json", Encoding.Default);
+            DISHES = JsonConvert.DeserializeObject<Dish[]>(jsonText);
+        }
+
+        public void drawDishes()
+        {
+            for (int i = 0; i < DISHES.Length; i++)
+            {
+                Dish dish = DISHES[i];
+                int calories = dish.calculateCalories();
+                BitmapImage image = Utils.getImageByName(dish.ImageName);
+
+                DishListItem newItem = new DishListItem(dish.DishName, calories, dish.Ingredients, image);
+                newItem.MouseDown += addIngredientsToShoppingList;
+                dishesList.Children.Add(newItem);
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
 
-            Uri pickleUri = new Uri("/images/pickle.jpg", UriKind.Relative);
-            BitmapImage pickleImage = new BitmapImage(pickleUri);
+            loadIngredientsFromJSON();
+            loadDishesFromJSON();
 
-            Uri mizeriaUri = new Uri("/images/mizeria.jpg", UriKind.Relative);
-            BitmapImage mizeriaImage = new BitmapImage(mizeriaUri);
-
-            Ingredient ogorek = new Ingredient("ogorek", 1.0, 2);
-
-            /*
-            Ingredient[] ings = { ogorek};
-
-            Dish[] test = { new Dish("mizeria", 500, ings) };
-
-            Stream fileStream = File.OpenWrite("../../Data/dishes.json");
-
-            StreamWriter writer = new StreamWriter(fileStream);
-            writer.Write(Utils.toJSON(test));
-            writer.Close();*/
-
-            string jsonText = File.ReadAllText("../../Data/dishes.json");
-
-            Dish[] allDishes = JsonConvert.DeserializeObject<Dish[]>(jsonText);
-
-
-            for (int i = 0; i < 20; i++)
-            {
-                shoppingList.Items.Add(new ShoppingListItem("Ogórek", i, pickleImage));
-            }
-
-            for (int i = 0; i < allDishes.Length; i++)
-            {
-                Dish dish = allDishes[i];
-                dishesList.Children.Add(new DishListItem(dish.Name, dish.Calories, mizeriaImage));
-            }
+            drawDishes();
+            
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ListaZakupów
     class ShoppingListItem : ListItem
     {
 
-        private string productName;
+        public string IngredientName { get; }
         private int amount;
         public int Amount
         {
@@ -18,29 +18,31 @@ namespace ListaZakupów
             set
             {
                 this.amount = value;
-                this.label.Content = this.productName + " x " + this.amount;
+                this.label.Content = this.IngredientName + " x " + this.amount;
             }
         }
-        public ShoppingListItem(string productName, int amount, BitmapImage productImageSource) : base(productName, productImageSource)
+        public ShoppingListItem(string name, int amount, double price, BitmapImage productImageSource) : base(name, productImageSource)
         {
-            this.productName = productName;
+            this.IngredientName = name;
             this.Amount = amount;
             this.image.Width = 50;
             this.image.Height = 50;
         }
     }
 
-    struct Ingredient
+    public struct Ingredient
     {
-        public string Name { get; set; }
-        public double Price { get; set; }
-        public int Amount { get; set; }
+        public string IngredientName { get; }
+        public double Price { get; }
+        public int Calories { get; }
+        public string ImageName { get; }
 
-        public Ingredient(string name, double price, int amount)
+        public Ingredient(string ingredientName, double price, int calories, string imageName)
         {
-            this.Name = name;
+            this.IngredientName = ingredientName;
             this.Price = price;
-            this.Amount = amount;
+            this.Calories = calories;
+            this.ImageName = imageName;
         }
     }
 }
