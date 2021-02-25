@@ -59,7 +59,7 @@ namespace ListaZakupów
         public int Calories { get; }
         public IngredientData[] Ingredients { get;}
         public DishListItem(string productName, int calories, IngredientData[] ingredients, BitmapImage productImageSource)
-            : base(productName + '\n' + calories + "kcal", productImageSource)
+            : base(productName + '\n' + calories + " kcal", productImageSource)
         {
             this.Calories = calories;
             this.Ingredients = ingredients;
@@ -67,11 +67,11 @@ namespace ListaZakupów
             this.setTooltipIngredients();
             this.Width = 200;
             this.Height = 200;
-            this.Background = Brushes.Gray;
+            this.Background = Brushes.White;
             this.Margin = new Thickness(10.0);
 
             this.label.FontSize = 16;
-            this.label.Foreground = Brushes.White;
+            this.label.Foreground = Brushes.Black;
             this.label.Height = 60;
             this.label.Width = 200;
             this.label.HorizontalContentAlignment = HorizontalAlignment.Center;

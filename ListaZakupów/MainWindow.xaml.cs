@@ -75,7 +75,7 @@ namespace ListaZakupów
 
                 DishListItem newItem = new DishListItem(dish.DishName, calories, dish.Ingredients, image);
                 newItem.MouseDown += addIngredientsToShoppingList;
-                dishesList.Children.Add(newItem);
+                contentContainer.Children.Add(newItem);
             }
         }
 
