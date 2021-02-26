@@ -48,8 +48,10 @@ namespace ListaZakupów
             switch (((Button)sender).Name)
             {
                 case "buttonDishes":
-
                     CONTENT_CONTAINER.Children.Add(new DishesWindow());
+                    break;
+                case "buttonIngredients":
+                    CONTENT_CONTAINER.Children.Add(new IngredientsWindow());
                     break;
             }
         }

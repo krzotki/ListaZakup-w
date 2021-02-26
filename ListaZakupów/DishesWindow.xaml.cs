@@ -40,7 +40,7 @@ namespace ListaZakupów
             }
         }
 
-        public static void addIngredientsToShoppingList(object sender, EventArgs eventArgs)
+        public void addIngredientsToShoppingList(object sender, EventArgs eventArgs)
         {
             IngredientData[] ingredients = ((DishListItem)sender).Ingredients;
 

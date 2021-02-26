@@ -7,11 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="570" Width="1076">
     <Grid>
-        <ListBox x:Name="shoppingList" Margin="10,10,865,10"/>
-        <WrapPanel x:Name="contentContainer" HorizontalAlignment="Left" Height="470" Margin="218,59,10,14" VerticalAlignment="Top" Width="840" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
-        <Button x:Name="buttonDishes" Content="Dishes" HorizontalAlignment="Left" Margin="218,10,0,0" VerticalAlignment="Top" Width="131" Height="44" Click="handleBookmarkClick"/>
-        <Button x:Name="buttonAddProduct" Content="Add product" HorizontalAlignment="Left" Margin="354,10,0,0" VerticalAlignment="Top" Width="131" Height="44" Click="handleBookmarkClick"/>
-        <Button x:Name="buttonAddDish" Content="Add dish" HorizontalAlignment="Left" Margin="490,10,0,0" VerticalAlignment="Top" Width="131" Height="44" Click="handleBookmarkClick"/>
-        <Button x:Name="buttonCaloriesInfo" Content="Calories info" HorizontalAlignment="Left" Margin="626,10,0,0" VerticalAlignment="Top" Width="131" Height="44" Click="handleBookmarkClick"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="135*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="122*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="shoppingList" Margin="10,10,907,10" Grid.RowSpan="3"/>
+        <WrapPanel x:Name="contentContainer" Margin="0,59,10,10" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Grid.RowSpan="3" HorizontalAlignment="Right" Width="876"/>
+        <Button x:Name="buttonDishes" Content="Dishes" Margin="0,10,755,0" Click="handleBookmarkClick" HorizontalAlignment="Right" Width="131" Height="44" VerticalAlignment="Top"/>
+        <Button x:Name="buttonIngredients" Content="Single products" Margin="0,10,619,0" Click="handleBookmarkClick" HorizontalAlignment="Right" Width="131" Height="44" VerticalAlignment="Top"/>
     </Grid>
 </Window>
