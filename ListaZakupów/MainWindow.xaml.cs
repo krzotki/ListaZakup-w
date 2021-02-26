@@ -25,57 +25,33 @@ namespace ListaZakupów
 
     public partial class MainWindow : Window
     {
-        private void addIngredientsToShoppingList(object sender, EventArgs eventArgs)
-        {
-            IngredientData[] ingredients = ((DishListItem)sender).Ingredients;
 
-            for (int i = 0; i < ingredients.Length; i++)
-            {
-                Ingredient ingredient = ingredients[i].getDetails();
-                int amount = ingredients[i].Amount;
-
-                BitmapImage image = Utils.getImageByName(ingredient.ImageName);
-
-                ShoppingListItem item = new ShoppingListItem(ingredient.IngredientName, amount, ingredient.Price, image);
-
-                ShoppingListItem oldItem = Utils.findItemInShoppingList(item, shoppingList.Items);
-
-                if (oldItem != null)
-                {
-                    oldItem.Amount += item.Amount;
-                }
-                else
-                {
-                    shoppingList.Items.Add(item);
-                }
-            }
-        }
-
+        public static ListBox SHOPPING_LIST;
+        public static WrapPanel CONTENT_CONTAINER;
         public static Ingredient[] INGREDIENTS;
         public static Dish[] DISHES;
-        public void loadIngredientsFromJSON()
+        private void loadIngredientsFromJSON()
         {
             string jsonText = File.ReadAllText("../../Data/ingredients.json", Encoding.Default);
             INGREDIENTS = JsonConvert.DeserializeObject<Ingredient[]>(jsonText);
         }
 
-        public void loadDishesFromJSON()
+        private void loadDishesFromJSON()
         {
             string jsonText = File.ReadAllText("../../Data/dishes.json", Encoding.Default);
             DISHES = JsonConvert.DeserializeObject<Dish[]>(jsonText);
         }
 
-        public void drawDishes()
-        {
-            for (int i = 0; i < DISHES.Length; i++)
-            {
-                Dish dish = DISHES[i];
-                int calories = dish.calculateCalories();
-                BitmapImage image = Utils.getImageByName(dish.ImageName);
 
-                DishListItem newItem = new DishListItem(dish.DishName, calories, dish.Ingredients, image);
-                newItem.MouseDown += addIngredientsToShoppingList;
-                contentContainer.Children.Add(newItem);
+        private void handleBookmarkClick(object sender, EventArgs args)
+        {
+            contentContainer.Children.Clear();
+
+            switch (((Button)sender).Name)
+            {
+                case "buttonDishes":
+                    DishesWindow.draw();
+                    break;
             }
         }
 
@@ -85,9 +61,8 @@ namespace ListaZakupów
 
             loadIngredientsFromJSON();
             loadDishesFromJSON();
-
-            drawDishes();
-            
+            SHOPPING_LIST = shoppingList;
+            CONTENT_CONTAINER = contentContainer;
         }
     }
 }
