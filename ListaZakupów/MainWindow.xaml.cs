@@ -22,10 +22,8 @@ namespace ListaZakupów
     /// </summary>
     /// 
 
-
     public partial class MainWindow : Window
     {
-
         public static ListBox SHOPPING_LIST;
         public static WrapPanel CONTENT_CONTAINER;
         public static Ingredient[] INGREDIENTS;
@@ -50,7 +48,8 @@ namespace ListaZakupów
             switch (((Button)sender).Name)
             {
                 case "buttonDishes":
-                    DishesWindow.draw();
+
+                    CONTENT_CONTAINER.Children.Add(new DishesWindow());
                     break;
             }
         }
@@ -63,6 +62,9 @@ namespace ListaZakupów
             loadDishesFromJSON();
             SHOPPING_LIST = shoppingList;
             CONTENT_CONTAINER = contentContainer;
+
+           /* UserControl1 userControl1 = new UserControl1();
+            CONTENT_CONTAINER.Children.Add(userControl1); */
         }
     }
 }

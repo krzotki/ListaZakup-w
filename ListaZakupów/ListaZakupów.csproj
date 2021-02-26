@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="DishesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,14 +71,20 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\Dish.cs" />
-    <Compile Include="Classes\DishesWindow.cs" />
     <Compile Include="Classes\Ingredient.cs" />
     <Compile Include="Classes\ListItem.cs" />
     <Compile Include="Classes\Utils.cs" />
+    <Compile Include="DishesWindow.xaml.cs">
+      <DependentUpon>DishesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -118,5 +128,6 @@
   <ItemGroup>
     <Resource Include="Images\pomidor.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
