@@ -18,7 +18,7 @@ namespace ListaZakupów
     /// <summary>
     /// Logika interakcji dla klasy DishesWindowControl.xaml
     /// </summary>
-    public partial class DishesWindow : UserControl
+    public partial class DishesWindow
     {
         public DishesWindow()
         {

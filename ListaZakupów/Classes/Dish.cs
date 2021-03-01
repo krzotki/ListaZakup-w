@@ -53,47 +53,4 @@ namespace ListaZakupów
             return sum;
         }
     }
-
-    class DishListItem : ListItem
-    {
-        public int Calories { get; }
-        public IngredientData[] Ingredients { get;}
-        public DishListItem(string productName, int calories, IngredientData[] ingredients, BitmapImage productImageSource)
-            : base(productName + '\n' + calories + " kcal", productImageSource)
-        {
-            this.Calories = calories;
-            this.Ingredients = ingredients;
-
-            this.setTooltipIngredients();
-            this.Width = 200;
-            this.Height = 200;
-            this.Background = Brushes.White;
-            this.Margin = new Thickness(10.0);
-
-            this.label.FontSize = 16;
-            this.label.Foreground = Brushes.Black;
-            this.label.Height = 60;
-            this.label.Width = 200;
-            this.label.HorizontalContentAlignment = HorizontalAlignment.Center;
-
-            this.image.Width = 130;
-            this.image.Height = 130;
-            this.image.Margin = new Thickness(35, 0, 35, 0);
-        }
-
-        private void setTooltipIngredients()
-        {
-            string text = "Składniki: \n";
-            for (int i = 0; i < this.Ingredients.Length; i++)
-            {
-                IngredientData ingredient = this.Ingredients[i];
-                int amount = ingredient.Amount;
-                Ingredient details = ingredient.getDetails();
-
-                text += amount + " x " + details.IngredientName + " (" + details.Calories + " kcal)\n";
-            }
-
-            this.ToolTip = text;
-        }
-    }
 }

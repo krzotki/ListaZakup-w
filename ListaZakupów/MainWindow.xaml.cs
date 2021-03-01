@@ -25,7 +25,7 @@ namespace ListaZakupów
     public partial class MainWindow : Window
     {
         public static ListBox SHOPPING_LIST;
-        public static WrapPanel CONTENT_CONTAINER;
+        public static ContentControl CONTENT_CONTAINER;
         public static Ingredient[] INGREDIENTS;
         public static Dish[] DISHES;
         private void loadIngredientsFromJSON()
@@ -43,15 +43,14 @@ namespace ListaZakupów
 
         private void handleBookmarkClick(object sender, EventArgs args)
         {
-            contentContainer.Children.Clear();
-
+        
             switch (((Button)sender).Name)
             {
                 case "buttonDishes":
-                    CONTENT_CONTAINER.Children.Add(new DishesWindow());
+                    contentContainer.Content = new DishesWindow();
                     break;
                 case "buttonIngredients":
-                    CONTENT_CONTAINER.Children.Add(new IngredientsWindow());
+                    contentContainer.Content = new IngredientsWindow();
                     break;
             }
         }
@@ -65,8 +64,6 @@ namespace ListaZakupów
             SHOPPING_LIST = shoppingList;
             CONTENT_CONTAINER = contentContainer;
 
-           /* UserControl1 userControl1 = new UserControl1();
-            CONTENT_CONTAINER.Children.Add(userControl1); */
         }
     }
 }
