@@ -52,6 +52,12 @@ namespace ListaZakupów
                 case "buttonIngredients":
                     contentContainer.Content = new IngredientsWindow();
                     break;
+                case "buttonAddNew":
+                    contentContainer.Content = new AddNewItemWindow();
+                    break;
+                case "buttonCalories":
+                    contentContainer.Content = new CaloriesWindow();
+                    break;
             }
         }
 

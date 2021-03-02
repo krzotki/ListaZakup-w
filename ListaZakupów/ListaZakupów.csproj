@@ -58,13 +58,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddNewItemWindow.xaml.cs">
+      <DependentUpon>AddNewItemWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CaloriesWindow.xaml.cs">
+      <DependentUpon>CaloriesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\DishesWindow.cs" />
     <Compile Include="DishListItem.xaml.cs">
       <DependentUpon>DishListItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShoppingListItem.xaml.cs">
       <DependentUpon>ShoppingListItem.xaml</DependentUpon>
     </Compile>
-    <Page Include="DishesWindow.xaml">
+    <Page Include="AddNewItemWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CaloriesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,9 +99,6 @@
     <Compile Include="Classes\Ingredient.cs" />
     <Compile Include="Classes\ListItem.cs" />
     <Compile Include="Classes\Utils.cs" />
-    <Compile Include="DishesWindow.xaml.cs">
-      <DependentUpon>DishesWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="IngredientsWindow.xaml.cs">
       <DependentUpon>IngredientsWindow.xaml</DependentUpon>
     </Compile>
@@ -101,10 +109,6 @@
     <Page Include="ShoppingListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +153,8 @@
   <ItemGroup>
     <Resource Include="Images\pomidor.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Themes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

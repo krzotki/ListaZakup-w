@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" Width="200" Height="200" MinWidth="0.2" Margin="20">
     <Grid Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
-        <Label x:Name="label" Content="Label" Margin="10,10,10,144" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label" Content="Label" Margin="10,10,10,144" Height="46" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" FontSize="14"/>
         <Image x:Name="image" Height="129" Margin="10,0,10,10" VerticalAlignment="Bottom"/>
 
     </Grid>

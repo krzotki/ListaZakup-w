@@ -16,9 +16,13 @@
             <RowDefinition Height="26*"/>
             <RowDefinition Height="244*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="shoppingList" Margin="10,10,0,10" Grid.RowSpan="4" HorizontalAlignment="Left" Width="217"/>
-        <Button x:Name="buttonDishes" Content="Dishes" Margin="252,10,0,0" Click="handleBookmarkClick" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131"/>
-        <Button x:Name="buttonIngredients" Content="Single products" Margin="388,10,0,0" Click="handleBookmarkClick" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131"/>
-        <ContentControl x:Name="contentContainer" Content="" Margin="252,59,10,10" Grid.RowSpan="4" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+        <ListBox x:Name="shoppingList" Margin="10,59,0,61" Grid.RowSpan="4" HorizontalAlignment="Left" Width="217" HorizontalContentAlignment="Center"/>
+        <Button x:Name="buttonDishes" Content="Dania" Margin="252,10,0,0" Click="handleBookmarkClick" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131"/>
+        <Button x:Name="buttonIngredients" Content="Produkty" Margin="388,10,0,0" Click="handleBookmarkClick" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131"/>
+        <ContentControl x:Name="contentContainer" Content="" Margin="252,59,10,10" Grid.RowSpan="4" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <Button x:Name="buttonAddNew" Content="Dodaj danie&#xD;&#xA; lub produkt" Margin="524,10,0,0" Click="handleBookmarkClick" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131"/>
+        <Button x:Name="buttonCalories" Content="Informacje o&#xD;&#xA;kaloriach" Margin="660,10,0,0" Click="handleBookmarkClick" Height="44" VerticalAlignment="Top" HorizontalAlignment="Left" Width="131"/>
+        <Label x:Name="label" Content="Lista zakupów" Margin="10,10,0,0" FontSize="24" Height="44" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="217"/>
+        <Button x:Name="button" Content="Zapisz" HorizontalAlignment="Left" Margin="10,0,0,10" Grid.Row="3" VerticalAlignment="Bottom" Width="217" Height="46"/>
     </Grid>
 </Window>

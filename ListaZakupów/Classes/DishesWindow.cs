@@ -18,11 +18,13 @@ namespace ListaZakupów
     /// <summary>
     /// Logika interakcji dla klasy DishesWindowControl.xaml
     /// </summary>
-    public partial class DishesWindow
+    public class DishesWindow : WrapPanel
     {
-        public DishesWindow()
+        public DishesWindow() : base()
         {
-            InitializeComponent();
+            this.Width = Double.NaN;
+            this.Height = Double.NaN;
+            this.Background = Brushes.White;
             draw();
         }
 
@@ -36,7 +38,7 @@ namespace ListaZakupów
 
                 DishListItem newItem = new DishListItem(dish.DishName, calories, dish.Ingredients, image);
                 newItem.MouseDown += addIngredientsToShoppingList;
-                contentPanel.Children.Add(newItem);
+                this.Children.Add(newItem);
             }
         }
 

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="ListaZakupów.IngredientsWindow"
+﻿<UserControl x:Class="ListaZakupów.AddNewItemWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,7 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White">
-        <Label x:Name="label" Content="Wszystkie produkty&#xD;&#xA;(dodawanie pojedynczych produktów do koszyka)" Margin="0,153,10,177" Width="790" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label x:Name="label" Content="Dodaj nowe danie" HorizontalAlignment="Left" Margin="45,141,0,0" VerticalAlignment="Top" Height="92" Width="241" FontSize="24"/>
+        <Label x:Name="label_Copy" Content="Dodaj nowy produkt" HorizontalAlignment="Left" Margin="454,141,0,0" VerticalAlignment="Top" Height="92" Width="241" FontSize="24"/>
 
     </Grid>
 </UserControl>
