@@ -40,11 +40,25 @@ namespace ListaZakupów
             DISHES = JsonConvert.DeserializeObject<Dish[]>(jsonText);
         }
 
+        private void highlightButton(string name)
+        {
+            foreach(Button button in bookmarks.Children)
+            {
+                if (button.Name == name)
+                {
+                    button.Background = (Brush)new BrushConverter().ConvertFromString("#FFFFFF");
+                }
+                else
+                {
+                    button.Background = (Brush)new BrushConverter().ConvertFromString("#BBBBBB");
+                }
+            }
+        }
 
         private void handleBookmarkClick(object sender, EventArgs args)
         {
-        
-            switch (((Button)sender).Name)
+            Button button = (Button)sender;
+            switch (button.Name)
             {
                 case "buttonDishes":
                     contentContainer.Content = new DishesWindow();
@@ -59,6 +73,8 @@ namespace ListaZakupów
                     contentContainer.Content = new CaloriesWindow();
                     break;
             }
+
+            this.highlightButton(button.Name);
         }
 
         public MainWindow()

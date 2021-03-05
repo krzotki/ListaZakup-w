@@ -37,34 +37,7 @@ namespace ListaZakupów
                 BitmapImage image = Utils.getImageByName(dish.ImageName);
 
                 DishListItem newItem = new DishListItem(dish.DishName, calories, dish.Ingredients, image);
-                newItem.MouseDown += addIngredientsToShoppingList;
                 this.Children.Add(newItem);
-            }
-        }
-
-        public void addIngredientsToShoppingList(object sender, EventArgs eventArgs)
-        {
-            IngredientData[] ingredients = ((DishListItem)sender).Ingredients;
-
-            for (int i = 0; i < ingredients.Length; i++)
-            {
-                Ingredient ingredient = ingredients[i].getDetails();
-                int amount = ingredients[i].Amount;
-
-                BitmapImage image = Utils.getImageByName(ingredient.ImageName);
-
-                ShoppingListItem item = new ShoppingListItem(ingredient.IngredientName, amount, ingredient.Price, image);
-
-                ShoppingListItem oldItem = Utils.findItemInShoppingList(item, MainWindow.SHOPPING_LIST.Items);
-
-                if (oldItem != null)
-                {
-                    oldItem.Amount += item.Amount;
-                }
-                else
-                {
-                    MainWindow.SHOPPING_LIST.Items.Add(item);
-                }
             }
         }
     }

@@ -33,6 +33,33 @@ namespace ListaZakupów
             this.Ingredients = ingredients;
 
             this.setTooltipIngredients();
+            this.MouseDown += this.addIngredientsToShoppingList;
+            this.MouseEnter += this.onMouseOver;
+            this.MouseLeave += this.onMouseOut;
+        }
+
+        private void onMouseOver(object sender, EventArgs args)
+        { 
+            this.Background = (Brush)new BrushConverter().ConvertFromString("#119da4");
+        }
+
+        private void onMouseOut(object sender, EventArgs args)
+        {
+            this.Background = (Brush)new BrushConverter().ConvertFromString("#0c7489");
+        }
+
+        public static DishListItem fromIngredient(int i)
+        {
+            Ingredient ingredient = MainWindow.INGREDIENTS[i];
+            int calories = ingredient.Calories;
+            BitmapImage image = Utils.getImageByName(ingredient.ImageName);
+
+            IngredientData[] data = new IngredientData[1];
+            data[0] = new IngredientData(i, 1);
+
+            DishListItem ingredientListItem = new DishListItem(ingredient.IngredientName, calories, data, image);
+            ingredientListItem.ToolTip = null;
+            return ingredientListItem;
         }
 
         private void setTooltipIngredients()
@@ -48,6 +75,33 @@ namespace ListaZakupów
             }
 
             this.ToolTip = text;
+        }
+
+        private void addIngredientsToShoppingList(object sender, EventArgs eventArgs)
+        {
+            IngredientData[] ingredients = this.Ingredients;
+
+            for (int i = 0; i < ingredients.Length; i++)
+            {
+                Ingredient ingredient = ingredients[i].getDetails();
+                int amount = ingredients[i].Amount;
+
+                BitmapImage image = Utils.getImageByName(ingredient.ImageName);
+
+                ShoppingListItem item = new ShoppingListItem(ingredient.IngredientName, amount, ingredient.Price, image);
+
+                ShoppingListItem oldItem = Utils.findItemInShoppingList(item, MainWindow.SHOPPING_LIST.Items);
+
+                if (oldItem != null)
+                {
+                    oldItem.Amount += item.Amount;
+
+                }
+                else
+                {
+                    MainWindow.SHOPPING_LIST.Items.Add(item);
+                }
+            }
         }
     }
 }
