@@ -31,7 +31,8 @@ namespace ListaZakupów
 
         public static BitmapImage getImageByName(string name)
         {
-            Uri imageUri = new Uri("/images/" + name, UriKind.Relative);
+
+            Uri imageUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../images/" + name, UriKind.Absolute);
             return new BitmapImage(imageUri);
         }
     }

@@ -9,10 +9,10 @@ namespace ListaZakupów
 {
     public struct Ingredient
     {
-        public string IngredientName { get; }
-        public double Price { get; }
-        public int Calories { get; }
-        public string ImageName { get; }
+        public string IngredientName { get; set; }
+        public double Price { get; set; }
+        public int Calories { get; set; }
+        public string ImageName { get; set; }
 
         public Ingredient(string ingredientName, double price, int calories, string imageName)
         {

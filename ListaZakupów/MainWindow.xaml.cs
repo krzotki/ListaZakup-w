@@ -28,13 +28,13 @@ namespace ListaZakupów
         public static ContentControl CONTENT_CONTAINER;
         public static Ingredient[] INGREDIENTS;
         public static Dish[] DISHES;
-        private void loadIngredientsFromJSON()
+        public static void loadIngredientsFromJSON()
         {
             string jsonText = File.ReadAllText("../../Data/ingredients.json", Encoding.Default);
             INGREDIENTS = JsonConvert.DeserializeObject<Ingredient[]>(jsonText);
         }
 
-        private void loadDishesFromJSON()
+        public static void loadDishesFromJSON()
         {
             string jsonText = File.ReadAllText("../../Data/dishes.json", Encoding.Default);
             DISHES = JsonConvert.DeserializeObject<Dish[]>(jsonText);
