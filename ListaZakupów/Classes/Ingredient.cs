@@ -21,5 +21,6 @@ namespace ListaZakupów
             this.Calories = calories;
             this.ImageName = imageName;
         }
+
     }
 }

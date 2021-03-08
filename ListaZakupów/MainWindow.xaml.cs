@@ -30,7 +30,7 @@ namespace ListaZakupów
         public static Dish[] DISHES;
         public static void loadIngredientsFromJSON()
         {
-            string jsonText = File.ReadAllText("../../Data/ingredients.json", Encoding.Default);
+            string jsonText = File.ReadAllText("../../Data/ingredients.json", Encoding.UTF8);
             INGREDIENTS = JsonConvert.DeserializeObject<Ingredient[]>(jsonText);
         }
 

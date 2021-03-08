@@ -26,7 +26,7 @@ namespace ListaZakupów
             return MainWindow.INGREDIENTS[this.Index];
         }
     }
-    public class Dish
+    public struct Dish
     {
         public string DishName { get; }
         public IngredientData[] Ingredients { get; }

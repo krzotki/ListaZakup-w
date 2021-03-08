@@ -20,7 +20,6 @@ namespace ListaZakupów
     /// </summary>
     public partial class ShoppingListItem : UserControl
     {
-
         public string IngredientName { get; }
         private int amount;
         public int Amount

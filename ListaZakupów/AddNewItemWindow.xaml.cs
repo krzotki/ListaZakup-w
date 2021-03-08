@@ -101,15 +101,10 @@ namespace ListaZakupów
 
         private void saveIngredientToJSON()
         {
-            Ingredient[] newIngredients = new Ingredient[MainWindow.INGREDIENTS.Length + 1];
-            for (int i = 0; i < MainWindow.INGREDIENTS.Length; i++)
-            {
-                newIngredients[i] = MainWindow.INGREDIENTS[i];
-            }
+            Array.Resize(ref MainWindow.INGREDIENTS, MainWindow.INGREDIENTS.Length + 1);
+            MainWindow.INGREDIENTS[MainWindow.INGREDIENTS.GetUpperBound(0)] = ingredientToAdd;
 
-            newIngredients[newIngredients.Length - 1] = ingredientToAdd;
-
-            string newJSON = JsonConvert.SerializeObject(newIngredients);
+            string newJSON = JsonConvert.SerializeObject(MainWindow.INGREDIENTS, Formatting.Indented);
 
             FileStream stream = new FileStream("../../Data/ingredients.json", FileMode.OpenOrCreate);
             StreamWriter writer = new StreamWriter(stream, Encoding.Default);
@@ -141,7 +136,7 @@ namespace ListaZakupów
             {
                 saveIngredientToJSON();
                 copyImage(ingredientImagePath, ingredientToAdd.ImageName);
-                MainWindow.loadIngredientsFromJSON();
+
                 MainWindow.CONTENT_CONTAINER.Content = new AddNewItemWindow("Dodano nowy produkt!", true);
             }
             else
