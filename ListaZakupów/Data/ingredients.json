@@ -1,6 +1,6 @@
 [
   {
-    "IngredientName": "Og?rek",
+    "IngredientName": "Ogorek",
     "Price": 1.2,
     "Calories": 50,
     "ImageName": "pickle.jpg"
@@ -17,4 +17,10 @@
     "Calories": 40,
     "ImageName": "papryka.jpg"
   },
+  {
+    "IngredientName": "Cebula",
+    "Price": 1.1,
+    "Calories": 40,
+    "ImageName": "cebula.jpg"
+  }
 ]

@@ -75,6 +75,7 @@ namespace ListaZakupów
             }
 
             this.highlightButton(button.Name);
+           
         }
 
         public MainWindow()

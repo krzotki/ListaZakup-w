@@ -23,6 +23,25 @@ namespace ListaZakupów
         public CaloriesWindow()
         {
             InitializeComponent();
+
+            chart.MinX = 1;
+            chart.MaxX = 30;
+
+            chart.MinY = 0;
+            chart.MaxY = 2500;
+            chart.AxisYDivider = 500;
+            chart.AxisXDivider = 7;
+
+            generatePoints();
+        }
+
+        public void generatePoints()
+        {
+            for (int i = 0; i < 30; i++)
+            {
+                chart.AddPoint(i, Math.Log(i+1)*500);
+            }
+
         }
     }
 }

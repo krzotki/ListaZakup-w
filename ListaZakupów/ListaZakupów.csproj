@@ -64,6 +64,7 @@
     <Compile Include="CaloriesWindow.xaml.cs">
       <DependentUpon>CaloriesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Chart.cs" />
     <Compile Include="Classes\DishesWindow.cs" />
     <Compile Include="Classes\IngredientsWindow.cs" />
     <Compile Include="DishListItem.xaml.cs">
