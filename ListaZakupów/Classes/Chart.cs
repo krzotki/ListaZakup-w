@@ -25,17 +25,17 @@ namespace ListaZakupów
 
         public void display(Chart chart)
         {
-            Rectangle rect = new Rectangle();
-            rect.Fill = (Brush)new BrushConverter().ConvertFromString(Color);
-            rect.Width = 5;
-            rect.Height = 5;
+            Ellipse circle = new Ellipse();
+            circle.Fill = (Brush)new BrushConverter().ConvertFromString(Color);
+            circle.Width = 5;
+            circle.Height = 5;
 
-            double normalizedX = (X /(chart.MaxX - chart.MinX)) * chart.Width - rect.Width / 2;
-            double normalizedY = chart.Height - rect.Height / 2 - (Y / (chart.MaxY - chart.MinY)) * chart.Height;
+            double normalizedX = (X /(chart.MaxX - chart.MinX)) * chart.Width - circle.Width / 2;
+            double normalizedY = chart.Height / 2 - circle.Height / 2 - (Y / (chart.MaxY - chart.MinY)) * chart.Height;
 
-            Canvas.SetLeft(rect, normalizedX);
-            Canvas.SetTop(rect, normalizedY);
-            chart.Children.Add(rect);
+            Canvas.SetLeft(circle, normalizedX);
+            Canvas.SetTop(circle, normalizedY);
+            chart.Children.Add(circle);
         }
     }
 
@@ -48,8 +48,10 @@ namespace ListaZakupów
         public double MaxX { get; set; }
         public double MaxY { get; set; }
 
-        public int AxisXDivider { get; set; }
-        public int AxisYDivider { get; set; }
+        public double DeltaX { get; set; }
+        public double DeltaY { get; set; }
+
+        public double LabelToDeltaRatio { get; set; }
 
         private void draw()
         {
@@ -63,25 +65,25 @@ namespace ListaZakupów
 
         private void drawAxes()
         {
-            double dX = (Width / (MaxX - MinX)) * AxisXDivider;
-            for (int i = 0; i <= (MaxX - MinX) / AxisXDivider; i++)
+            double dX = (Width / (MaxX - MinX)) * DeltaX / LabelToDeltaRatio;
+            for (int i = 0; i <= (MaxX - MinX) / DeltaX * LabelToDeltaRatio; i++)
             {
                 Label labelX = new Label();
-                labelX.Content = i * AxisXDivider + MinX;
+                labelX.Content = (i * DeltaX / LabelToDeltaRatio + MinX).ToString("0.0");
                 labelX.Height = 25;
                 Canvas.SetLeft(labelX, dX * i);
                 Canvas.SetTop(labelX, Height + 5);
                 Children.Add(labelX);
             }
 
-            double dY = (Height / (MaxY - MinY)) * AxisYDivider;
-            for (int i = 0; i <= (MaxY - MinY) / AxisYDivider; i++)
+            double dY = (Height / (MaxY - MinY)) * DeltaY / LabelToDeltaRatio;
+            for (int i = 0; i <= (MaxY - MinY) / DeltaY * LabelToDeltaRatio; i++)
             {
                 Label labelY = new Label();
                 labelY.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Right;
                 labelY.Width = 50;
                 labelY.Height = 25;
-                labelY.Content = i * AxisYDivider + MinY;
+                labelY.Content = (i * DeltaY / LabelToDeltaRatio + MinY).ToString("0.0");
                 Canvas.SetLeft(labelY, -labelY.Width - 5);
                 Canvas.SetTop(labelY, Height - labelY.Height / 2 - dY * i);
                 Children.Add(labelY);

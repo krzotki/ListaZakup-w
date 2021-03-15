@@ -24,22 +24,24 @@ namespace ListaZakupów
         {
             InitializeComponent();
 
-            chart.MinX = 1;
-            chart.MaxX = 30;
+            chart.MinX = 0;
+            chart.MaxX = Math.PI * 2;
 
-            chart.MinY = 0;
-            chart.MaxY = 2500;
-            chart.AxisYDivider = 500;
-            chart.AxisXDivider = 7;
+            chart.MinY = -2;
+            chart.MaxY = 2;
+            chart.DeltaY = 0.2;
+            chart.DeltaX = 0.1;
+
+            chart.LabelToDeltaRatio = 0.25;
 
             generatePoints();
         }
 
         public void generatePoints()
         {
-            for (int i = 0; i < 30; i++)
+            for (double i = chart.MinX; i <= chart.MaxX; i+=chart.DeltaX)
             {
-                chart.AddPoint(i, Math.Log(i+1)*500);
+                chart.AddPoint(i, Math.Sin(i));
             }
 
         }
