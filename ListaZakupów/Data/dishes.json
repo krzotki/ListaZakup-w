@@ -1,39 +1,36 @@
 [
   {
     "DishName": "Mizeria",
-    "ImageName": "mizeria.jpg",
     "Ingredients": [
       {
         "Index": 0,
         "Amount": 2
       }
-    ]
+    ],
+    "ImageName": "mizeria.jpg"
   },
-
   {
     "DishName": "Pomidorowa",
-    "ImageName": "pomidorowa.jpg",
     "Ingredients": [
       {
         "Index": 1,
         "Amount": 5
       }
-    ]
+    ],
+    "ImageName": "pomidorowa.jpg"
   },
-
   {
     "DishName": "Sa³atka",
-    "ImageName": "salatka.jpg",
     "Ingredients": [
       {
         "Index": 0,
         "Amount": 1
       },
-
       {
         "Index": 1,
         "Amount": 2
       }
-    ]
-  }
+    ],
+    "ImageName": "salatka.jpg"
+  },
 ]

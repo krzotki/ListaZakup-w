@@ -28,9 +28,9 @@ namespace ListaZakupów
     }
     public struct Dish
     {
-        public string DishName { get; }
-        public IngredientData[] Ingredients { get; }
-        public string ImageName { get; }
+        public string DishName { get; set; }
+        public IngredientData[] Ingredients { get; set; }
+        public string ImageName { get; set; }
         public Dish(string dishName, IngredientData[] ingredients, string imageName)
         {
             this.DishName = dishName;

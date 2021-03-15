@@ -97,7 +97,7 @@ namespace ListaZakupów
 
                 BitmapImage image = Utils.getImageByName(ingredient.ImageName);
 
-                ShoppingListItem item = new ShoppingListItem(ingredient.IngredientName, amount, ingredient.Price, image);
+                ShoppingListItem item = new ShoppingListItem(ingredient.IngredientName, amount, ingredients[i].Index, image);
 
                 ShoppingListItem oldItem = Utils.findItemInShoppingList(item, MainWindow.SHOPPING_LIST.Items);
 

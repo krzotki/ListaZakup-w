@@ -44,6 +44,19 @@ namespace ListaZakupów
             return result;
         }
 
+        public static IngredientData[] shoppingListToIngredientData(ItemCollection list)
+        {
+            IngredientData[] ingredientData = new IngredientData[list.Count];
+            
+            for (int i = 0; i < list.Count; i++)
+            {
+                ShoppingListItem item = (ShoppingListItem)list.GetItemAt(i);
+                ingredientData[i] = new IngredientData(item.Index, item.Amount);
+            }
+
+            return ingredientData;
+        }
+
         public static BitmapImage getImageByName(string name)
         {
 

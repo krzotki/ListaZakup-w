@@ -21,6 +21,7 @@ namespace ListaZakupów
     public partial class ShoppingListItem : UserControl
     {
         public string IngredientName { get; }
+
         private int amount;
         public int Amount
         {
@@ -31,13 +32,17 @@ namespace ListaZakupów
                 this.label.Content = this.IngredientName + " x " + this.amount;
             }
         }
-        public ShoppingListItem(string name, int amount, double price, BitmapImage productImageSource)
+
+        public int Index { get; }
+
+        public ShoppingListItem(string name, int amount, int index, BitmapImage productImageSource)
         {
             InitializeComponent();
 
             this.image.Source = productImageSource;
             this.IngredientName = name;
             this.Amount = amount;
+            this.Index = index;
         }
     }
 }
