@@ -34,9 +34,10 @@ namespace ListaZakupów
             {
                 Dish dish = MainWindow.DISHES[i];
                 int calories = dish.calculateCalories();
+                double price = dish.calculatePrice();
                 BitmapImage image = Utils.getImageByName(dish.ImageName);
 
-                DishListItem newItem = new DishListItem(dish.DishName, calories, dish.Ingredients, image);
+                DishListItem newItem = new DishListItem(dish.DishName, calories, price, dish.Ingredients, image);
                 this.Children.Add(newItem);
             }
         }

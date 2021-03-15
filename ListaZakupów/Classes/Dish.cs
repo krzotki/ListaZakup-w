@@ -52,5 +52,20 @@ namespace ListaZakupów
 
             return sum;
         }
+
+        public double calculatePrice()
+        {
+            double sum = 0;
+            for (int i = 0; i < this.Ingredients.Length; i++)
+            {
+                int index = this.Ingredients[i].Index;
+                int amount = this.Ingredients[i].Amount;
+
+                double price = MainWindow.INGREDIENTS[index].Price * amount;
+                sum += price;
+            }
+
+            return sum;
+        }
     }
 }

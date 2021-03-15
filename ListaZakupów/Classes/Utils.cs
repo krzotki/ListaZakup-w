@@ -29,6 +29,21 @@ namespace ListaZakupów
             return null;
         }
 
+        public static string shoppingListToString(ItemCollection list, double price)
+        {
+            string result = "";
+            foreach (ShoppingListItem listItem in list)
+            {
+                string name = listItem.IngredientName;
+                int amount = listItem.Amount;
+                result += string.Format("{0} x {1}\n", name, amount);
+            }
+
+            result += string.Format("\nRazem: {0} zł", price);
+
+            return result;
+        }
+
         public static BitmapImage getImageByName(string name)
         {
 

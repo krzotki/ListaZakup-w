@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,6 +29,55 @@ namespace ListaZakupów
         public static ContentControl CONTENT_CONTAINER;
         public static Ingredient[] INGREDIENTS;
         public static Dish[] DISHES;
+
+        private double caloriesSum = 0;
+        private double priceSum = 0;
+
+        public void addCalories(double calories)
+        {
+            caloriesSum += calories;
+            caloriesSumLabel.Content = caloriesSum + " kcal";
+        }
+        public void addPrice(double price)
+        {
+            priceSum += price;
+            priceSumLabel.Content = priceSum + " zł";
+        }
+
+        private bool saveShoppingListToFile()
+        {
+            SaveFileDialog saveDialog = new Microsoft.Win32.SaveFileDialog();
+            saveDialog.FileName = "Lista zakupów";
+            saveDialog.DefaultExt = ".txt";
+            saveDialog.Filter = "Text documents (.txt)|*.txt";
+
+            Nullable<bool> result = saveDialog.ShowDialog();
+
+            if (result == true)
+            {
+                string textContent = Utils.shoppingListToString(shoppingList.Items, priceSum);
+                Stream fileStream = saveDialog.OpenFile();
+
+                StreamWriter writer = new StreamWriter(fileStream);
+                writer.Write(textContent);
+                writer.Close();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private void clearShoppingList()
+        {
+            caloriesSum = 0;
+            priceSum = 0;
+            addCalories(0);
+            addPrice(0);
+
+            shoppingList.Items.Clear();
+        }
+
         public static void loadIngredientsFromJSON()
         {
             string jsonText = File.ReadAllText("../../Data/ingredients.json", Encoding.UTF8);
@@ -78,14 +128,24 @@ namespace ListaZakupów
            
         }
 
+
+
         public MainWindow()
         {
             InitializeComponent();
 
             loadIngredientsFromJSON();
             loadDishesFromJSON();
+
             SHOPPING_LIST = shoppingList;
             CONTENT_CONTAINER = contentContainer;
+        }
+
+        private void saveShoppingList(object sender, RoutedEventArgs e)
+        {
+            if (saveShoppingListToFile()) {
+                clearShoppingList();
+            }
 
         }
     }
