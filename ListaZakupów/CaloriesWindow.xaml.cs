@@ -24,11 +24,11 @@ namespace ListaZakupów
         {
             InitializeComponent();
 
-            chart.MinX = 0;
+            chart.MinX = -Math.PI;
             chart.MaxX = Math.PI * 2;
 
-            chart.MinY = -2;
-            chart.MaxY = 2;
+            chart.MinY = -6;
+            chart.MaxY = 6;
             chart.DeltaY = 0.2;
             chart.DeltaX = 0.1;
 
@@ -44,6 +44,15 @@ namespace ListaZakupów
                 chart.AddPoint(i, Math.Sin(i));
             }
 
+        }
+
+        public void generatePoints2()
+        {
+            for (int i = 0; i < 30; i++)
+            {
+                CaloriesData data = CaloriesData.AllData[i];
+                chart.AddPoint(i, data.Calories);
+            }
         }
     }
 }

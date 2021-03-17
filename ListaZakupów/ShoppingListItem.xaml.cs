@@ -38,7 +38,7 @@ namespace ListaZakupów
         public ShoppingListItem(string name, int amount, int index, BitmapImage productImageSource)
         {
             InitializeComponent();
-
+            this.Width = Double.NaN;
             this.image.Source = productImageSource;
             this.IngredientName = name;
             this.Amount = amount;

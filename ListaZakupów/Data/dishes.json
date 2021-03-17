@@ -33,4 +33,44 @@
     ],
     "ImageName": "salatka.jpg"
   },
+  {
+    "DishName": "Kanapki",
+    "Ingredients": [
+      {
+        "Index": 0,
+        "Amount": 1
+      },
+      {
+        "Index": 1,
+        "Amount": 1
+      },
+      {
+        "Index": 3,
+        "Amount": 1
+      },
+      {
+        "Index": 4,
+        "Amount": 1
+      }
+    ],
+    "ImageName": "kanapki.jpg"
+  },
+  {
+    "DishName": "Szaszlyki",
+    "Ingredients": [
+      {
+        "Index": 0,
+        "Amount": 3
+      },
+      {
+        "Index": 1,
+        "Amount": 3
+      },
+      {
+        "Index": 5,
+        "Amount": 3
+      }
+    ],
+    "ImageName": "szaszlyki.jpg"
+  }
 ]

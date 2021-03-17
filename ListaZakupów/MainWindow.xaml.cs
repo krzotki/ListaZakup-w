@@ -136,6 +136,7 @@ namespace ListaZakupów
 
             loadIngredientsFromJSON();
             loadDishesFromJSON();
+            CaloriesData.loadFromJSON();
 
             SHOPPING_LIST = shoppingList;
             CONTENT_CONTAINER = contentContainer;
@@ -144,6 +145,7 @@ namespace ListaZakupów
         private void saveShoppingList(object sender, RoutedEventArgs e)
         {
             if (saveShoppingListToFile()) {
+                CaloriesData.addData(Utils.getTodayTimestamp(), caloriesSum);
                 clearShoppingList();
             }
 

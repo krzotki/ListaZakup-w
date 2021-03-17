@@ -64,6 +64,7 @@
     <Compile Include="CaloriesWindow.xaml.cs">
       <DependentUpon>CaloriesWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Calories.cs" />
     <Compile Include="Classes\Chart.cs" />
     <Compile Include="Classes\DishesWindow.cs" />
     <Compile Include="Classes\IngredientsWindow.cs" />
@@ -124,6 +125,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Data\calories.json" />
     <None Include="Data\dishes.json" />
     <None Include="Data\ingredients.json" />
     <None Include="packages.config" />

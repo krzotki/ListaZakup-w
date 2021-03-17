@@ -63,5 +63,17 @@ namespace ListaZakupów
             Uri imageUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + "../../images/" + name, UriKind.Absolute);
             return new BitmapImage(imageUri);
         }
+
+        public static DateTime UnixTimeStampToDateTime(long unixTimeStamp)
+        {
+            System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
+            return dtDateTime;
+        }
+
+        public static long getTodayTimestamp()
+        {
+           return new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds();
+        }
     }
 }

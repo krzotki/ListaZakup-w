@@ -28,5 +28,11 @@
     "Price": 1.5,
     "Calories": 200,
     "ImageName": "chleb.jpg"
+  },
+  {
+    "IngredientName": "Piersi z kurczaka",
+    "Price": 10.0,
+    "Calories": 300,
+    "ImageName": "piersi_kurczak.jpg"
   }
 ]
