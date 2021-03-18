@@ -30,11 +30,8 @@ namespace ListaZakupów
             circle.Width = 5;
             circle.Height = 5;
 
-            double XAxisStart = (chart.MaxX != 0) ? (chart.MaxX - chart.MinX) / chart.MaxX : 1;
-            double YAxisStart = (chart.MaxY != 0) ? (chart.MaxY - chart.MinY) / chart.MaxY : 1;
-
-            double normalizedX = chart.Width / XAxisStart - circle.Width / 2 - (X / (chart.MaxX - chart.MinX)) * chart.Width;
-            double normalizedY = chart.Height / (YAxisStart) - circle.Height / 2 - (Y / (chart.MaxY - chart.MinY)) * chart.Height;
+            double normalizedX = ((X - chart.MinX) / (chart.MaxX - chart.MinX)) * chart.Width;
+            double normalizedY = -(((Y - chart.MinY) / (chart.MaxY - chart.MinY)) * chart.Height - chart.Height);
 
             Canvas.SetLeft(circle, normalizedX);
             Canvas.SetTop(circle, normalizedY);
