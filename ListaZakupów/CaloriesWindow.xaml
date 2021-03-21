@@ -10,7 +10,8 @@
     <Grid Background="White">
         <Label x:Name="label" Content="np. Tygodniowy wykres kalorii&#xA;" HorizontalAlignment="Left" Margin="253,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.376,-0.002" Height="87" Width="294" FontSize="20"/>
 
-        <Classes:Chart x:Name="chart" HorizontalAlignment="Left" Height="308" Margin="127,93,0,0" VerticalAlignment="Top" Width="592" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        <Classes:Chart x:Name="chart" HorizontalAlignment="Left" Height="299" Margin="71,93,0,0" VerticalAlignment="Top" Width="682">
+</Classes:Chart>
 
     </Grid>
 </UserControl>

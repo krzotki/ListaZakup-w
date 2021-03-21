@@ -24,8 +24,8 @@ namespace ListaZakupów
         {
             InitializeComponent();
 
-            //drawCalories();
-            testSin();
+            drawCalories();
+            //testSin();
         }
 
         public void testSin()
@@ -35,35 +35,42 @@ namespace ListaZakupów
 
             chart.MinY = -2;
             chart.MaxY = 2;
-            chart.DeltaY = 0.2;
-            chart.DeltaX = 0.1;
+            chart.DeltaY = 0.5;
+            chart.DeltaX = 0.5;
 
-            chart.LabelToDeltaRatio = 0.25;
+            chart.LabelToDeltaRatio = 1;
 
             for (double i = chart.MinX; i <= chart.MaxX; i+=chart.DeltaX)
             {
                 chart.AddPoint(i, Math.Sin(i));
             }
 
+            chart.draw();
+
         }
 
         public void drawCalories()
         {
-            chart.MinX = 0;
+            chart.MinX = 1;
             chart.MaxX = 30;
 
             chart.MinY = 0;
             chart.MaxY = 2500;
-            chart.DeltaY = 100;
+            chart.DeltaY = 400;
             chart.DeltaX = 1;
 
-            chart.LabelToDeltaRatio = 0.25;
+            chart.LabelToDeltaRatio = 1;
 
-            for (int i = 0; i < 30; i++)
+            chart.FormatX = "0";
+            chart.FormatY = "0";
+
+            for (int i = 1; i <= 30; i++)
             {
-                CaloriesData data = CaloriesData.AllData[i];
+                CaloriesData data = CaloriesData.AllData[i - 1];
                 chart.AddPoint(i, data.Calories);
             }
+
+            chart.draw();
         }
     }
 }
